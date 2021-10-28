@@ -34,6 +34,7 @@ public class LoginController {
 
             case "USER":
                 currentView = UserView.getInstance();
+                currentView.setUser(currentUser);
                 currentView.updateView();
                 break;
         }
@@ -64,8 +65,10 @@ public class LoginController {
         int success = userDepartment.loginUser(email, password);
         if (success == 0) {
             loginView.accessDenied();
-        } else
+        } else {
             loginView.accessGranted();
+            currentUser = email;
+        }
         String input = "";
         while (!input.equalsIgnoreCase("p")) {
             input = scanner.nextLine();
@@ -92,6 +95,7 @@ public class LoginController {
     }
 
     private final UserDepartment userDepartment;
+    private String currentUser = null;
     private static View currentView = HomeView.getInstance();
     private static final Scanner scanner = new Scanner(System.in);
 }

@@ -36,7 +36,7 @@ public abstract class View {
 
     ArrayList<String> getStrList() {
         ArrayList<String> cloneList = new ArrayList<>();
-        for (String str: strList) {
+        for (String str : strList) {
             cloneList.add(str);
         }
         return cloneList;
@@ -46,7 +46,24 @@ public abstract class View {
         return strList.size();
     }
 
+    void setState(int newState) {
+        state = newState;
+    }
 
+    int getState() {
+        return state;
+    }
+
+    void setUser(String name) {
+        user = name;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    private String user = null;
     private int cursorIndex = 0;
+    private int state = 0;
     private final ArrayList<String> strList = new ArrayList<>();
 }

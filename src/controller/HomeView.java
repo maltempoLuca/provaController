@@ -37,8 +37,8 @@ public class HomeView extends View {
     }
 
     public String currentState() {
-        int cursorIndex = getCursorIndex();
-        return switch (cursorIndex) {
+        setState(getCursorIndex());
+        return switch (getState()) {
             case 0 -> "LOGIN";
             case 1 -> "REGISTER";
             default -> null;
@@ -47,4 +47,5 @@ public class HomeView extends View {
 
 
     private static HomeView instance = new HomeView();
+
 }

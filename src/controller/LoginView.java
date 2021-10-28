@@ -34,17 +34,17 @@ public class LoginView extends View {
     void accessDenied() {
         String str1 = "Email o Password errata, per riprovare premere p. \n";
         System.out.println(str1);
-        state = 0;
+        setState(0);
     }
 
     void accessGranted() {
-        state = 1;
+        setState(1);
         System.out.println("Login riuscito, digitare 'p' continuare.");
     }
 
     @Override
     String currentState() {
-        return switch (state) {
+        return switch (getState()) {
             case 0 -> "HOME";
             case 1 -> "USER";
             default -> null;
@@ -52,7 +52,6 @@ public class LoginView extends View {
     }
 
     private static LoginView istance = null;
-    private int state = 0;
 
 
 }

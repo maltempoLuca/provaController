@@ -27,7 +27,7 @@ public class UserView extends View {
     @Override
     void updateView() {
         clear();
-        String str0 = "Benvenuto su pippo.com \n";
+        String str0 = "Ciao " + getUser() + ", benvenuto su Pippo.com :D\n";
         System.out.println(str0);
         ArrayList<String> strList = getStrList();
         int cursorIndex = getCursorIndex();
@@ -40,15 +40,14 @@ public class UserView extends View {
     }
 
     @Override
-    public String currentState() {
-        int cursorIndex = getCursorIndex();
-        return switch (cursorIndex) {
+    String currentState() {
+        setState(getCursorIndex());
+        return switch (getCursorIndex()) {
             case 0 -> "USER";
             case 1 -> "USER";
             default -> null;
         };
     }
 
-    private int state = 0;
     private static UserView instance = null;
 }

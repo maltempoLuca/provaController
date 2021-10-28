@@ -23,7 +23,7 @@ public class RegisterView extends View {
 
     @Override
     String currentState() {
-        return switch (state) {
+        return switch (getState()) {
             case 0 -> "REGISTER";
             case 1 -> "HOME";
             default -> null;
@@ -41,16 +41,15 @@ public class RegisterView extends View {
     }
 
     public void accessDenied() {
-        String str1 = "Email o Password errata, per riprovare premere p. \n";
+        String str1 = "Email o Password errata, per riprovare digitare 'p'. \n";
         System.out.println(str1);
-        state = 0;
+        setState(0);
     }
 
     public void accessGranted() {
-        state = 1;
+        setState(1);
         System.out.println("Account creato, digitare 'p' continuare.");
     }
 
     private static RegisterView instance = null;
-    private int state = 0;
 }
