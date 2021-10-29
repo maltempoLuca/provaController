@@ -1,10 +1,8 @@
 package controller;
 
-import java.util.ArrayList;
-
 public class HomeView extends View {
     private HomeView() {
-        createHome();
+        createDialogue();
     }
 
     public static HomeView getInstance() {
@@ -13,12 +11,13 @@ public class HomeView extends View {
         return instance;
     }
 
-    private void createHome() {
+    private void createDialogue() {
         resetCursor();
         String str1 = "Login \n";
         String str2 = "Create account\n";
         addToList(str1);
         addToList(str2);
+        updateView();
     }
 
     @Override
@@ -26,14 +25,7 @@ public class HomeView extends View {
         clear();
         String str0 = "Benvenuto su pippo.com \n";
         System.out.print(str0);
-        ArrayList<String> strList = getStrList();
-        int cursorIndex = getCursorIndex();
-        for (int i = 0; i < strList.size(); i++) {
-            if (cursorIndex == i) {
-                strList.set(i, "-> " + strList.get(i));
-            }
-            System.out.print(strList.get(i));
-        }
+        printView();
     }
 
     public String currentState() {

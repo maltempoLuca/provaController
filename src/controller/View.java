@@ -24,6 +24,16 @@ public abstract class View {
 
     abstract void updateView();
 
+    void printView() {
+        int cursorIndex = getCursorIndex();
+        for (int i = 0; i < strList.size(); i++) {
+            if (cursorIndex == i) {
+                System.out.print("-> " + strList.get(i));
+            } else
+                System.out.print(strList.get(i));
+        }
+    }
+
     abstract String currentState();
 
     void addToList(String str) {
@@ -35,15 +45,7 @@ public abstract class View {
     }
 
     ArrayList<String> getStrList() {
-        ArrayList<String> cloneList = new ArrayList<>();
-        for (String str : strList) {
-            cloneList.add(str);
-        }
-        return cloneList;
-    }
-
-    int getStrSize() {
-        return strList.size();
+        return new ArrayList<>(strList);  // Ritorna NUOVA lista, funziona. Non cancellare per ora.
     }
 
     void setState(int newState) {
@@ -65,5 +67,6 @@ public abstract class View {
     private String user = null;
     private int cursorIndex = 0;
     private int state = 0;
+    //TODO: Trova un nome a strList, strList == lista di stringhe che ogni vista deve stampare a schermo. (printView)
     private final ArrayList<String> strList = new ArrayList<>();
 }

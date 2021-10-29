@@ -2,21 +2,17 @@ package controller;
 
 public class RegisterView extends View {
     private RegisterView() {
-        updateView();
     }
 
     public static RegisterView getInstance() {
-        if (istance == null)
-            istance = new RegisterView();
-        return istance;
+        if (instance == null)
+            instance = new RegisterView();
+        return instance;
     }
-
-    private static RegisterView istance = null;
 
     @Override
     void updateView() {
         clear();
-
         String str1 = "Per registrarti a Pippo.com segui le indicazioni.";
         System.out.println(str1);
     }

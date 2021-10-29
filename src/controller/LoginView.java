@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 public class LoginView extends View {
 
     private LoginView() {
@@ -9,9 +7,9 @@ public class LoginView extends View {
     }
 
     public static LoginView getInstance() {
-        if (istance == null)
-            istance = new LoginView();
-        return istance;
+        if (instance == null)
+            instance = new LoginView();
+        return instance;
     }
 
     @Override
@@ -51,7 +49,7 @@ public class LoginView extends View {
         };
     }
 
-    private static LoginView istance = null;
+    private static LoginView instance = null;
 
 
 }

@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.ArrayList;
-
 public class UserView extends View {
 
     private UserView() {
@@ -29,14 +27,7 @@ public class UserView extends View {
         clear();
         String str0 = "Ciao " + getUser() + ", benvenuto su Pippo.com :D\n";
         System.out.println(str0);
-        ArrayList<String> strList = getStrList();
-        int cursorIndex = getCursorIndex();
-        for (int i = 0; i < strList.size(); i++) {
-            if (cursorIndex == i) {
-                strList.set(i, "-> " + strList.get(i));
-            }
-            System.out.print(strList.get(i));
-        }
+        printView();
     }
 
     @Override

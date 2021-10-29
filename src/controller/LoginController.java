@@ -9,37 +9,29 @@ public class LoginController {
         this.userDepartment = userDepartment;
     }
 
-    public void startDialogue() {
-        currentView.updateView();
-    }
-
     public void nextView(String state) {
         switch (state) {
-            case "HOME":
+            case "HOME" -> {
                 currentView = HomeView.getInstance();
                 currentView.updateView();
-                break;
-
-            case "LOGIN":
+            }
+            case "LOGIN" -> {
                 currentView = LoginView.getInstance();
                 currentView.updateView();
                 scanLogin();
-                break;
-
-            case "REGISTER":
+            }
+            case "REGISTER" -> {
                 currentView = RegisterView.getInstance();
                 currentView.updateView();
                 scanRegister();
-                break;
-
-            case "USER":
+            }
+            case "USER" -> {
                 currentView = UserView.getInstance();
                 currentView.setUser(currentUser);
                 currentView.updateView();
-                break;
+            }
         }
     }
-
 
     public void scan() {
         String input = scanner.nextLine();
